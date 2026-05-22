@@ -27,20 +27,6 @@ export const currentResearch = [
     ],
     tags: ['Web Measurement', 'Age Verification', 'Policy'],
   },
-  {
-    id: 'content-moderation-audit',
-    title: 'Content Moderation Policy Auditing',
-    dateRange: 'September 2025 – Present',
-    status: 'active',
-    shortDesc:
-      'Contributing to lab-wide work auditing content-moderation policy enforcement across major platforms, measuring gaps between stated community guidelines and observed practice.',
-    bullets: [
-      'Systematic measurement of enforcement gaps between platform community guidelines and actual moderation decisions.',
-      'Cross-platform comparison of policy consistency at scale.',
-      'Part of the UChicago NOISE Lab\'s broader agenda on online safety measurement.',
-    ],
-    tags: ['Web Measurement', 'Content Moderation', 'Policy'],
-  },
 ]
 
 export const pastResearch = [

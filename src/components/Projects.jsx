@@ -5,6 +5,20 @@ import TagChip from '../ui/TagChip'
 // Add more projects here
 const projects = [
   {
+    id: 'maze-game',
+    title: 'Maze Generation Game',
+    description:
+      'Procedural maze generator built in JavaFX using Kruskal\'s algorithm. Led the algorithmic implementation in a team of three — 2nd place at DandyHacks Hackathon, University of Rochester (November 2023).',
+    tags: ['Java', 'JavaFX', 'Algorithms', 'Hackathon'],
+  },
+  {
+    id: 'rideshare-app',
+    title: 'Student Rideshare App',
+    description:
+      'Full-stack iOS/Android rideshare app built for Colgate University students with Sloop Software Group. Handled real-time ride requests and customer data using React Native and Cloud Firestore.',
+    tags: ['React Native', 'Cloud Firestore', 'iOS', 'Android'],
+  },
+  {
     id: 'this-website',
     title: 'This Website',
     description:

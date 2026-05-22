@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import SectionHeader from '../ui/SectionHeader'
 
@@ -24,35 +25,23 @@ const GitHubIcon = () => (
   </svg>
 )
 
-const contactLinks = [
-  {
-    label: 'Email',
-    value: 'tajveersd7@gmail.com',
-    href: 'mailto:tajveersd7@gmail.com',
-    Icon: EmailIcon,
-  },
-  {
-    label: 'LinkedIn',
-    value: 'linkedin.com/in/tajveer-singh-dhesi-606a75221',
-    href: 'https://www.linkedin.com/in/tajveer-singh-dhesi-606a75221',
-    Icon: LinkedInIcon,
-  },
-  {
-    label: 'GitHub',
-    value: 'github.com/tsinghdhesi',
-    href: 'https://github.com/tsinghdhesi',
-    Icon: GitHubIcon,
-  },
-]
-
 export default function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('tajveersd7@gmail.com')
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (e) {
+      // fallback: do nothing
+    }
+  }
+
   return (
     <section id="contact" className="section">
       <div className="container">
-        <SectionHeader
-          eyebrow="Contact"
-          title="Get in Touch"
-        />
+        <SectionHeader eyebrow="Contact" title="Get in Touch" />
 
         <motion.p
           className="contact__tagline"
@@ -72,23 +61,71 @@ export default function Contact() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
         >
-          {contactLinks.map(({ label, value, href, Icon }) => (
-            <a
-              key={label}
-              href={href}
-              className="contact__link"
-              target={href.startsWith('mailto') ? undefined : '_blank'}
-              rel="noopener noreferrer"
-            >
-              <span className="contact__link-icon">
-                <Icon />
+          {/* Email — click to copy */}
+          <button
+            onClick={handleCopyEmail}
+            className="contact__link"
+            style={{
+              cursor: 'pointer',
+              background: 'none',
+              border: 'none',
+              textAlign: 'left',
+              fontFamily: 'var(--font-body)',
+              width: 'fit-content',
+            }}
+          >
+            <span className="contact__link-icon">
+              <EmailIcon />
+            </span>
+            <span className="contact__link-text">
+              <span className="contact__link-label">Email</span>
+              <span className="contact__link-value">
+                tsinghdhesi@uchicago.edu
+                <span style={{
+                  fontSize: '0.72rem',
+                  color: copied ? 'var(--color-green-text)' : 'var(--color-text-muted)',
+                  fontFamily: 'var(--font-body)',
+                  marginLeft: '0.5rem',
+                  transition: 'color var(--transition-fast)',
+                  letterSpacing: '0.02em',
+                }}>
+                  {copied ? '✓ Copied' : 'click to copy'}
+                </span>
               </span>
-              <span className="contact__link-text">
-                <span className="contact__link-label">{label}</span>
-                <span className="contact__link-value">{value}</span>
-              </span>
-            </a>
-          ))}
+            </span>
+          </button>
+
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/tajveer-singh-dhesi-606a75221/"
+            target="_blank"
+            rel="noreferrer"
+            className="contact__link"
+          >
+            <span className="contact__link-icon">
+              <LinkedInIcon />
+            </span>
+            <span className="contact__link-text">
+              <span className="contact__link-label">LinkedIn</span>
+              <span className="contact__link-value">linkedin.com/in/tajveer-singh-dhesi-606a75221</span>
+            </span>
+          </a>
+
+          {/* GitHub */}
+          <a
+            href="https://github.com/tsinghdhesi"
+            target="_blank"
+            rel="noreferrer"
+            className="contact__link"
+          >
+            <span className="contact__link-icon">
+              <GitHubIcon />
+            </span>
+            <span className="contact__link-text">
+              <span className="contact__link-label">GitHub</span>
+              <span className="contact__link-value">github.com/tsinghdhesi</span>
+            </span>
+          </a>
         </motion.div>
       </div>
     </section>
