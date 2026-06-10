@@ -1,7 +1,9 @@
 {
   "name": "tajveer-website",
+  "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://tsinghdhesi.github.io/Tajveer-Website/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,14 +12,18 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "framer-motion": "^11.15.0",
+    "framer-motion": "^11.18.0",
+    "lucide-react": "^0.468.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.0"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
-    "gh-pages": "^6.3.0",
+    "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.2.0",
+    "playwright-core": "^1.60.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
     "vite": "^5.4.11"
   }
 }

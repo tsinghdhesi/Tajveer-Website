@@ -1,97 +1,46 @@
-import { motion } from 'framer-motion'
-import SectionHeader from '../ui/SectionHeader'
-
-const institutions = [
-  {
-    name: 'University of Chicago',
-    period: 'September 2025 – Present',
-    courses: [
-      {
-        name: 'Introduction to Computer Security',
-        topics: 'TOCTOU exploits, RSA padding-oracle attacks, web scraping tasks',
-        detail: 'TA',
-      },
-      {
-        name: 'Machine Learning for Computer Systems',
-        topics: 'Network packet-trace ML',
-        detail: 'TA',
-      },
-      {
-        name: 'Creating Interactive Systems with User-Centered Design',
-        topics: 'Mentored 3 student groups on quarter-long HCI projects',
-        detail: 'TA',
-      },
-    ],
-  },
-  {
-    name: 'Colgate University',
-    period: 'August – December 2023',
-    courses: [
-      {
-        name: 'Discrete Structures (COSC 290)',
-        topics: '50+ students across 2 sections, taught in Java',
-        detail: 'TA · 2 sections',
-      },
-      {
-        name: 'Data Structures & Algorithms (COSC 202)',
-        topics: '1 section, taught in Java',
-        detail: 'TA · 1 section',
-      },
-    ],
-  },
-]
+import Section, { Reveal } from './Section'
+import { teaching } from '../data/teaching'
 
 export default function Teaching() {
   return (
-    <section id="teaching" className="section">
-      <div className="container">
-        <SectionHeader
-          eyebrow="Teaching"
-          title="Teaching"
-          subtitle="TA experience across security, ML, HCI, and core CS theory."
-        />
+    <Section id="teaching" theme="dark">
+      <Reveal>
+        <h2 className="font-display text-4xl font-light lg:text-[2.75rem]">Teaching</h2>
+      </Reveal>
 
-        {institutions.map((inst, instIdx) => (
-          <motion.div
-            key={inst.name}
-            className="teaching-institution"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{
-              duration: 0.6,
-              ease: [0.16, 1, 0.3, 1],
-              delay: instIdx * 0.1,
-            }}
-          >
-            <div className="teaching-institution__header">
-              <h3 className="teaching-institution__name">{inst.name}</h3>
-              <span className="teaching-institution__period">{inst.period}</span>
-            </div>
+      <div className="mt-9 flex flex-col gap-10">
+        {teaching.map((group, gi) => (
+          <Reveal key={group.institution} delay={gi * 0.08}>
+            <div className="md:grid md:grid-cols-[300px_1fr] md:gap-12">
+              <div>
+                <h3 className="font-display text-xl font-normal">{group.institution}</h3>
+                <p className="mt-1 font-mono text-[12.5px] tracking-wide text-ink-2">
+                  {group.role} · {group.period}
+                </p>
+              </div>
 
-            <div className="teaching-courses">
-              {inst.courses.map((course, courseIdx) => (
-                <motion.div
-                  key={course.name}
-                  className="teaching-course"
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{
-                    duration: 0.5,
-                    ease: [0.16, 1, 0.3, 1],
-                    delay: instIdx * 0.1 + courseIdx * 0.06,
-                  }}
-                >
-                  <p className="teaching-course__name">{course.name}</p>
-                  <p className="teaching-course__topics">{course.topics}</p>
-                  <span className="teaching-course__detail">{course.detail}</span>
-                </motion.div>
-              ))}
+              <ul className="mt-4 md:mt-0">
+                {group.courses.map((course, ci) => (
+                  <li
+                    key={course.name}
+                    className={`py-4 ${ci > 0 ? 'border-t' : ''}`}
+                    style={{ borderColor: 'var(--hairline)' }}
+                  >
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <span className="text-[17px] font-medium">{course.name}</span>
+                      <span className="chip">TA</span>
+                      {course.term && <span className="chip">{course.term}</span>}
+                    </div>
+                    <p className="mt-1.5 max-w-[70ch] text-[15px] leading-relaxed text-ink-2">
+                      {course.note}
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
-    </section>
+    </Section>
   )
 }

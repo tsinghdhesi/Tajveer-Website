@@ -1,63 +1,49 @@
-import { motion } from 'framer-motion'
-import SectionHeader from '../ui/SectionHeader'
-import TagChip from '../ui/TagChip'
-
-// Add more projects here
-const projects = [
-  {
-    id: 'maze-game',
-    title: 'Maze Generation Game',
-    description:
-      'Procedural maze generator built in JavaFX using Kruskal\'s algorithm. Led the algorithmic implementation in a team of three — 2nd place at DandyHacks Hackathon, University of Rochester (November 2023).',
-    tags: ['Java', 'JavaFX', 'Algorithms', 'Hackathon'],
-  },
-  {
-    id: 'rideshare-app',
-    title: 'Student Rideshare App',
-    description:
-      'Full-stack iOS/Android rideshare app built for Colgate University students with Sloop Software Group. Handled real-time ride requests and customer data using React Native and Cloud Firestore.',
-    tags: ['React Native', 'Cloud Firestore', 'iOS', 'Android'],
-  },
-  {
-    id: 'this-website',
-    title: 'This Website',
-    description:
-      'Built with React + Vite, deployed on GitHub Pages. Designed from scratch with Framer Motion animations, a custom dark theme, and a full CSS custom-property design system.',
-    tags: ['React', 'Vite', 'CSS', 'Design'],
-  },
-]
+import { Github } from 'lucide-react'
+import Section, { Reveal } from './Section'
+import { projects } from '../data/projects'
 
 export default function Projects() {
   return (
-    <section id="projects" className="section">
-      <div className="container">
-        <SectionHeader
-          eyebrow="Projects"
-          title="Miscellaneous"
-          subtitle="Non-research projects and side work."
-        />
+    <Section id="projects" theme="dark">
+      <Reveal>
+        <h2 className="font-display text-4xl font-light lg:text-[2.75rem]">Projects</h2>
+      </Reveal>
 
-        <div className="projects-grid">
-          {projects.map((project, i) => (
-            <motion.div
-              key={project.id}
-              className="project-card"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
-            >
-              <h3 className="project-card__title">{project.title}</h3>
-              <p className="project-card__desc">{project.description}</p>
-              <div className="project-card__tags">
+      <div className="mt-7 grid gap-5 md:grid-cols-12">
+        {projects.map((project, i) => (
+          <Reveal key={project.id} delay={i * 0.07} className="md:col-span-7">
+            <article className="glass card-hover h-full rounded-2xl p-5 md:p-6">
+              <div className="flex items-start justify-between gap-3">
+                <span className="chip">{project.chip}</span>
+                {project.repo && (
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${project.title} on GitHub`}
+                    className="text-ink-2 transition-colors hover:text-ink"
+                  >
+                    <Github size={17} />
+                  </a>
+                )}
+              </div>
+              <h3 className="mt-3 font-display text-2xl font-normal leading-snug">
+                {project.title}
+              </h3>
+              <p className="mt-2 text-base leading-relaxed text-ink-2">
+                {project.description}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
                 {project.tags.map((tag) => (
-                  <TagChip key={tag} label={tag} />
+                  <span key={tag} className="chip">
+                    {tag}
+                  </span>
                 ))}
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </article>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </Section>
   )
 }

@@ -1,53 +1,42 @@
-import { motion } from 'framer-motion'
-import SectionHeader from '../ui/SectionHeader'
+import {
+  Trophy,
+  Clapperboard,
+  Plane,
+  Music,
+  Film,
+  Tv,
+  Sigma,
+} from 'lucide-react'
+import Section, { Reveal } from './Section'
+import { interests } from '../data/interests'
+
+const ICONS = { Trophy, Clapperboard, Plane, Music, Film, Tv, Sigma }
 
 export default function Interests() {
   return (
-    <section id="interests" className="section">
-      <div className="container">
-        <SectionHeader eyebrow="Interests" title="Interests" />
+    <Section id="interests" theme="dark">
+      <Reveal>
+        <h2 className="font-display text-4xl font-light lg:text-[2.75rem]">Interests</h2>
+      </Reveal>
 
-        <motion.div
-          className="interests__grid"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className="interests__column">
-            <p className="interests__col-label">Sports & Activity</p>
-            <ul className="interests__list">
-              <li>Football (soccer), American football, rugby, badminton</li>
-              <li>Gym and bouldering / climbing</li>
-            </ul>
-          </div>
-
-          <div className="interests__column">
-            <p className="interests__col-label">Culture & Media</p>
-            <ul className="interests__list">
-              <li>Favourite film: <em>The Nightmare Before Christmas</em></li>
-              <li>Favourite band: Green Day</li>
-              <li>Television: <em>Fleabag</em>, <em>Beef</em>, <em>BAIT</em></li>
-              <li>Solo travel — recently Tokyo; South Korea is next</li>
-              <li>Mathematics beyond the degree: discrete dynamical systems, combinatorics</li>
-            </ul>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="interests__extra"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        >
-          <p>
-            Before the PhD, I spent four years directing live Division I athletics broadcasts at
-            Colgate — liaising with ESPN on ad breaks and media timeouts, and making camera-cut
-            decisions in real time during NCAA games. It is a different kind of systems problem.
-          </p>
-        </motion.div>
-      </div>
-    </section>
+      <ul className="mt-7 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        {interests.map((interest, i) => {
+          const Icon = ICONS[interest.icon] ?? Trophy
+          return (
+            <Reveal key={interest.id} delay={i * 0.06} as="li">
+              <div className="glass card-hover group h-full rounded-xl p-5">
+                <div className="flex items-center gap-2.5">
+                  <Icon size={18} className="text-accent" aria-hidden />
+                  <p className="text-[17px] font-medium">{interest.label}</p>
+                </div>
+                <p className="mt-2 min-h-[3.2em] text-[14px] leading-snug text-ink-2 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100">
+                  {interest.detail}
+                </p>
+              </div>
+            </Reveal>
+          )
+        })}
+      </ul>
+    </Section>
   )
 }

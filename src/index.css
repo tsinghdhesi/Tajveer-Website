@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme='light'] {
+  --text-primary: #1e1a3e;
+  --text-secondary: rgba(30, 26, 62, 0.72);
+  --accent: #5b4bb5;
+  --card-bg: rgba(255, 255, 255, 0.55);
+  --card-border: rgba(91, 75, 181, 0.22);
+  --hairline: rgba(30, 26, 62, 0.18);
+}
+
+[data-theme='dark'] {
+  --text-primary: #ede9f8;
+  --text-secondary: rgba(237, 233, 248, 0.66);
+  --accent: #b9a8f0;
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(185, 168, 240, 0.18);
+  --hairline: rgba(237, 233, 248, 0.16);
+}
+
+/* Crossover zone: stronger card tint so all text clears 4.5:1 on the mid-gradient. */
+#publications {
+  --card-bg: rgba(255, 255, 255, 0.62);
+  --card-border: rgba(255, 255, 255, 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: #efeaf7; /* fallback behind the animated backdrop */
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.hairline-h {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline), transparent);
+}
+
+.chip {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 9999px;
+  padding: 0.25rem 0.7rem;
+  white-space: nowrap;
+}
+
+.card-hover {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-hover,
+  .card-hover:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.star {
+  position: absolute;
+  border-radius: 9999px;
+  background: #ede9f8;
+  animation: twinkle var(--twinkle-duration, 4s) ease-in-out infinite;
+  animation-delay: var(--twinkle-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star {
+    animation: none;
+    opacity: 0.5;
+  }
+}
+
+::selection {
+  background: rgba(185, 168, 240, 0.4);
+}
