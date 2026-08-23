@@ -14,32 +14,32 @@ export const interests = [
   },
   {
     id: 'solo-travel',
-    label: 'Solo travel',
+    label: 'Travelling',
     icon: 'Plane',
-    detail: 'Tokyo most recently, South Korea next.',
+    detail: 'Both within the US and internationally. Tokyo and New York most recently, South Korea and New Orleands next.',
   },
   {
     id: 'music',
     label: 'Music',
     icon: 'Music',
-    detail: 'Green Day.',
+    detail: 'Green Day, The Strokes, Stormzy, James Bay, and more!',
   },
   {
     id: 'film',
     label: 'Film',
     icon: 'Film',
-    detail: 'The Nightmare Before Christmas.',
+    detail: 'The Nightmare Before Christmas, Coraline, Django Unchained, and the MCU',
   },
   {
     id: 'television',
     label: 'Television',
     icon: 'Tv',
-    detail: 'Fleabag, Beef, BAIT.',
+    detail: 'Ghosts (UK), Beef, Attack On Titan, Aracne.',
   },
   {
     id: 'mathematics',
     label: 'Mathematics',
     icon: 'Sigma',
-    detail: 'Discrete dynamical systems and combinatorics, beyond what the degree required.',
+    detail: 'Discrete dynamical systems and combinatorics.',
   },
 ]
