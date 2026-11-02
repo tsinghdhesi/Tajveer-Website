@@ -1,16 +1,16 @@
 export const research = [
   {
-    id: 'agentic-ai-leakage',
-    title: 'Agentic AI Data Leakage Benchmarking',
+    id: 'sidecar',
+    title: 'Agentic AI Privacy Enforcement (SIDECAR)',
     chip: 'Active · 2026',
     summary:
-      'Designing a benchmark that measures whether LLM agents leak irrelevant sensitive information while completing realistic tasks.',
+      'Building SIDECAR, a context-aware privacy enforcement layer that sits in the network path of LLM agents and blocks or redacts outbound information that is inappropriate for its recipient, across email, web posts, and agent-to-agent messages.',
     body: [
-      'The benchmark is a task suite spanning realistic workflows such as email drafting and social posts. Each task mixes information the agent needs with sensitive context that is irrelevant to the task, and measures whether the model discloses it anyway.',
-      'The suite covers open-source models from 7B to 32B parameters alongside frontier closed-source models, enabling utility-to-leakage comparisons across deployment tiers.',
-      'Planned defense evaluations are framed around the NIST AI RMF, FTC enforcement, and state attorney general activity, so the results speak directly to how AI privacy harms are assessed in practice.',
+      'SIDECAR is framework-agnostic by design, so its protections hold even when an agent is compromised, misconfigured, or simply over-helpful. It combines Docker network isolation and iptables interception with a curated information-type taxonomy, recipient-specific disclosure norms, and LLM labelers.',
+      'In pilot results, SIDECAR reduced information leakage by 84 percent on PrivacyLens (470 cases) while retaining 85 percent of task utility, and by 75 percent on AgentDAM.',
+      'The result is an auditable, fail-closed control aligned with NIST AI RMF guidance and with emerging FTC and state attorney general enforcement around AI privacy harms.',
     ],
-    tags: ['LLM agents', 'privacy', 'benchmarking', 'NIST AI RMF'],
+    tags: ['LLM agents', 'privacy', 'network enforcement', 'NIST AI RMF'],
     links: [],
   },
   {
@@ -33,16 +33,17 @@ export const research = [
     ],
   },
   {
-    id: 'content-moderation-auditing',
-    title: 'Content Moderation Auditing',
-    chip: 'NOISE Lab',
+    id: 'youtube-age-estimation',
+    title: 'YouTube AI Age-Estimation Audit',
+    chip: 'Active · NOISE Lab',
     summary:
-      'Lab-wide work auditing content moderation policy enforcement across major platforms.',
+      'A black-box audit of YouTube’s production AI age-estimation system, measuring which behavioral signals (search, viewing, app installs) cause self-attested adult accounts to be reclassified as minors.',
     body: [
-      'The work measures gaps between platforms’ stated community guidelines and observed enforcement practice.',
-      'It sits within the NOISE Lab’s broader programme on content moderation across traditional platforms and emerging AI systems.',
+      'Regulators have questioned the accuracy of this deployed system, but no prior work has measured it.',
+      'The audit relies on a scalable sock-puppet measurement harness built on Android emulators with accessibility-driven UI automation, replicated across multiple jurisdictions.',
+      'The findings give regulators an empirical basis to assess the necessity and proportionality of behavioral age inference under GDPR data minimisation, EU DSA Art. 28, the UK Online Safety Act, and Australia’s social media minimum-age law.',
     ],
-    tags: ['platform audits', 'content moderation', 'policy'],
+    tags: ['platform audits', 'age assurance', 'Android automation', 'online safety policy'],
     links: [],
   },
 ]

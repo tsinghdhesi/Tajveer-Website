@@ -5,8 +5,13 @@ export const teaching = [
     period: 'Sept 2025 to present',
     courses: [
       {
-        name: 'Introduction to Computer Security',
+        name: 'Security, Privacy, and Consumer Protection',
         term: 'Current',
+        note: 'Supporting students on the technical and legal dimensions of consumer protection online, including DNS manipulation, copyright, and content moderation.',
+      },
+      {
+        name: 'Introduction to Computer Security',
+        term: '',
         note: 'Grading and student-facing support on system-level exploits, RSA padding-oracle attacks, and web-scraping-based attacks.',
       },
       {

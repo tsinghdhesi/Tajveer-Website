@@ -4,7 +4,7 @@ export const interests = [
     id: 'sport',
     label: 'Sport',
     icon: 'Trophy',
-    detail: 'Football, American football, rugby, badminton, plus the gym and bouldering.',
+    detail: 'Football, American football, rugby, badminton, going to the gym and bouldering.',
   },
   {
     id: 'broadcasting',
