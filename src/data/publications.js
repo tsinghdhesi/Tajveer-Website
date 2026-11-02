@@ -27,7 +27,7 @@ export const publications = [
   },
   {
     id: 'thesis-2025',
-    chip: 'Senior Thesis 2025',
+    chip: 'Thesis 2025',
     title:
       'Measuring the Variety of Website Arrival Age Gates in the E-Cigarette, Alcohol and Gambling Industry',
     authors: ['T. S. Dhesi', 'N. Apthorpe', 'A. Gember-Jacobson'],
