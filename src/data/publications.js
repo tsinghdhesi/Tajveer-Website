@@ -1,5 +1,31 @@
 export const publications = [
   {
+    id: 'arxiv-2026-agent-networking',
+    chip: 'arXiv 2026',
+    title: 'Rethinking Agent Security as a Networking Problem',
+    authors: ['V. Tran*', 'T. Sharma*', 'T. S. Dhesi*', 'N. Feamster'],
+    note: '* Equal contribution',
+    links: [
+      {
+        label: 'arXiv',
+        href: 'https://arxiv.org/abs/2608.12172',
+      },
+      {
+        label: 'PDF',
+        href: 'https://arxiv.org/pdf/2608.12172',
+      },
+    ],
+    bibtex: `@misc{tran2026agentsecurity,
+  author        = {Tran, Van and Sharma, Taveesh and Dhesi, Tajveer Singh and Feamster, Nick},
+  title         = {Rethinking Agent Security as a Networking Problem},
+  year          = {2026},
+  eprint        = {2608.12172},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.MA},
+  url           = {https://arxiv.org/abs/2608.12172}
+}`,
+  },
+  {
     id: 'conpro-2025',
     chip: 'ConPro 2025',
     title: 'Measuring the Prevalence and Variety of Online Age-Gates',

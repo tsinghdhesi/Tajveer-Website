@@ -44,7 +44,7 @@ export default function Publications() {
                     {pub.authors.map((author, j) => (
                       <span key={author}>
                         {j > 0 && ', '}
-                        {author === 'T. S. Dhesi' ? (
+                        {author.replace('*', '') === 'T. S. Dhesi' ? (
                           <span className="font-medium text-ink">{author}</span>
                         ) : (
                           author
@@ -52,6 +52,7 @@ export default function Publications() {
                       </span>
                     ))}
                   </p>
+                  {pub.note && <p className="mt-1 text-[13px] text-ink-2">{pub.note}</p>}
                 </div>
 
                 <div className="flex items-start gap-2 md:justify-end">
