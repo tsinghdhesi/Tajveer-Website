@@ -143,7 +143,7 @@ Error generating stack: `+s.message+`
   archivePrefix = {arXiv},
   primaryClass  = {cs.MA},
   url           = {https://arxiv.org/abs/2608.12172}
-}`},{id:"thesis-2025",chip:"Senior Thesis 2025",title:"Measuring the Variety of Website Arrival Age Gates in the E-Cigarette, Alcohol and Gambling Industry",authors:["T. S. Dhesi","N. Apthorpe","A. Gember-Jacobson"],links:[{label:"PDF",href:"/Tajveer-Website/thesis.pdf"}],bibtex:`@thesis{dhesi2025thesis,
+}`},{id:"thesis-2025",chip:"Thesis 2025",title:"Measuring the Variety of Website Arrival Age Gates in the E-Cigarette, Alcohol and Gambling Industry",authors:["T. S. Dhesi","N. Apthorpe","A. Gember-Jacobson"],links:[{label:"PDF",href:"/Tajveer-Website/thesis.pdf"}],bibtex:`@thesis{dhesi2025thesis,
   author      = {Dhesi, Tajveer Singh and Apthorpe, Noah and Gember-Jacobson, Aaron},
   title       = {Measuring the Variety of Website Arrival Age Gates in the E-Cigarette, Alcohol and Gambling Industry},
   type        = {Bachelor's Thesis (Senior Honors Thesis, COSC 492)},
