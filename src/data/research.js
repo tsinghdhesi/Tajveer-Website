@@ -30,6 +30,10 @@ export const research = [
         label: 'ConPro 2025 paper',
         href: 'https://conpro25.ieee-security.org/papers/dhesi-conpro25.pdf',
       },
+      {
+        label: 'Senior thesis',
+        href: `${import.meta.env.BASE_URL}thesis.pdf`,
+      },
     ],
   },
   {

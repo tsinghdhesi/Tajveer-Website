@@ -26,19 +26,44 @@ export const publications = [
 }`,
   },
   {
+    id: 'thesis-2025',
+    chip: 'Senior Thesis 2025',
+    title:
+      'Measuring the Variety of Website Arrival Age Gates in the E-Cigarette, Alcohol and Gambling Industry',
+    authors: ['T. S. Dhesi', 'N. Apthorpe', 'A. Gember-Jacobson'],
+    links: [
+      {
+        label: 'PDF',
+        href: `${import.meta.env.BASE_URL}thesis.pdf`,
+      },
+    ],
+    bibtex: `@thesis{dhesi2025thesis,
+  author      = {Dhesi, Tajveer Singh and Apthorpe, Noah and Gember-Jacobson, Aaron},
+  title       = {Measuring the Variety of Website Arrival Age Gates in the E-Cigarette, Alcohol and Gambling Industry},
+  type        = {Bachelor's Thesis (Senior Honors Thesis, COSC 492)},
+  institution = {Colgate University},
+  year        = {2025},
+  url         = {https://tsinghdhesi.github.io/Tajveer-Website/thesis.pdf}
+}`,
+  },
+  {
     id: 'conpro-2025',
     chip: 'ConPro 2025',
-    title: 'Measuring the Prevalence and Variety of Online Age-Gates',
-    authors: ['T. S. Dhesi', 'N. Apthorpe', 'A. Gember-Jacobson'],
+    title: 'Measuring the Prevalence and Variety of Online Age Gates',
+    authors: ['T. S. Dhesi', 'N. Apthorpe'],
     links: [
       {
         label: 'PDF',
         href: 'https://conpro25.ieee-security.org/papers/dhesi-conpro25.pdf',
       },
+      {
+        label: 'Workshop',
+        href: 'https://conpro25.ieee-security.org/',
+      },
     ],
     bibtex: `@inproceedings{dhesi2025agegates,
-  author    = {Dhesi, Tajveer Singh and Apthorpe, Noah and Gember-Jacobson, Aaron},
-  title     = {Measuring the Prevalence and Variety of Online Age-Gates},
+  author    = {Dhesi, Tajveer Singh and Apthorpe, Noah},
+  title     = {Measuring the Prevalence and Variety of Online Age Gates},
   booktitle = {Workshop on Technology and Consumer Protection (ConPro)},
   year      = {2025},
   url       = {https://conpro25.ieee-security.org/papers/dhesi-conpro25.pdf}
